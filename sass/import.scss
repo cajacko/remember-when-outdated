@@ -1,3 +1,8 @@
 @import '../node_modules/normalize.css/normalize';
 @import '../node_modules/font-awesome/css/font-awesome';
+@import 'global_variables';
+@import 'global_mixins';
 @import 'general';
+@import 'site_header';
+@import 'page';
+@import 'site_footer';

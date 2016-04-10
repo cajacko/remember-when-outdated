@@ -1,3 +1,15 @@
-* {
-    color: green;
+html {
+    color: $brandBlack;
+    font-family: 'helvetica', sans-serif;
+}
+
+.siteNavSubList {
+    display: none;
+}
+
+span {
+    &.siteNavItemTitle, 
+    &.siteHeaderNavItemTitle {
+        display: none;
+    }
 }

@@ -2431,5 +2431,60 @@ th {
 .fa-percent:before {
   content: "\f295"; }
 
-* {
-  color: green; }
+html {
+  color: #173e4c;
+  font-family: 'helvetica', sans-serif; }
+
+.siteNavSubList {
+  display: none; }
+
+span.siteNavItemTitle, span.siteHeaderNavItemTitle {
+  display: none; }
+
+.siteHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff65d; }
+
+.siteHeaderNav {
+  display: table;
+  width: 100%;
+  text-align: center;
+  height: 50px;
+  overflow: hidden; }
+  .siteHeaderNav > ul {
+    display: table-row; }
+    .siteHeaderNav > ul > li {
+      display: table-cell;
+      vertical-align: middle; }
+
+.siteTitle {
+  margin: 0;
+  padding: 0; }
+
+.page {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  right: 0;
+  bottom: 50px; }
+
+.siteFooter {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff65d; }
+
+.siteNav {
+  display: table;
+  width: 100%;
+  text-align: center;
+  height: 50px; }
+  .siteNav > ul {
+    display: table-row; }
+    .siteNav > ul > li {
+      display: table-cell;
+      vertical-align: middle; }

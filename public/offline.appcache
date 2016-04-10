@@ -1,0 +1,14 @@
+CACHE MANIFEST
+#v9
+./index.html
+./stylesheets/style.min.css
+./javascripts/script.min.js
+./fonts/fontawesome-webfont.eot
+./fonts/fontawesome-webfont.svg
+./fonts/fontawesome-webfont.ttf
+./fonts/fontawesome-webfont.woff
+./fonts/fontawesome-webfont.woff2
+./fonts/FontAwesome.otf
+
+NETWORK:
+*

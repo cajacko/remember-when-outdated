@@ -1,0 +1,19 @@
+.siteHeader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: $brandYellow;
+}
+
+.siteHeaderNav {
+    @include tableNav;
+
+    height: $siteHeaderNavHeight;
+    overflow: hidden;
+}
+
+.siteTitle {
+    margin: 0;
+    padding: 0;
+}

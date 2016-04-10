@@ -1,0 +1,14 @@
+@mixin tableNav {
+    display: table;
+    width: 100%;
+    text-align: center;
+
+    > ul {
+        display: table-row;
+
+        > li {
+            display: table-cell;
+            vertical-align: middle;
+        }
+    }
+}
