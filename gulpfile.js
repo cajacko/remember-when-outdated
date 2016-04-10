@@ -3,79 +3,48 @@ var sass = require('gulp-sass');
 var rename = require('gulp-rename');
 var minifyCss = require('gulp-minify-css');
 var uglify = require('gulp-uglify');
-var concat = require('gulp-concat');
 var browserSync = require('browser-sync');
 var autoprefixer = require('gulp-autoprefixer');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
+var reactify = require('reactify');
+var watchify = require('watchify');
 
 /********************************************************
-* DEFINE PROJECTS AND THEIR PATHS                       *
+* DEFINE PATHS                                          *
 ********************************************************/
-var projectCssPath = './public/stylesheets/';
-var projectJsPath = './public/javascripts/';
+var path = {
+    SASS_FILES: ['./sass/**/*.scss'],
+    SASS_IMPORT: './sass/import.scss',
+    CSS: 'style.css',
+    CSS_MIN: 'style.min.css',
+    CSS_OUT: './public/stylesheets/',
+    JS_OUT: './public/javascripts',
+    JS: 'script.js',
+    JS_MIN: 'script.min.js',
+    JS_IMPORT: './client_javascripts/import.js',
+    TWIG_FILES: ['./views/**/*.twig'],
+    PUBLIC_FILES: ['./public/**/*.js']
+};
 
 /********************************************************
 * SASS                                                  *
 ********************************************************/
 gulp.task('sass', function() {
-    return gulp.src('./sass/import.scss')
+    return gulp.src(path.SASS_IMPORT)
         .pipe(sass().on('error', sass.logError))
-        .pipe(rename('style.css'))
+        .pipe(rename(path.CSS))
         .pipe(autoprefixer({
             browsers: ['last 2 versions'],
             cascade: false
         }))
-        .pipe(gulp.dest(projectCssPath))
-        .pipe(rename('style.min.css'))
+        .pipe(gulp.dest(path.CSS_OUT))
+        .pipe(rename(path.CSS_MIN))
         .pipe(minifyCss())
-        .pipe(gulp.dest(projectCssPath));
+        .pipe(gulp.dest(path.CSS_OUT))
+        .pipe(browserSync.stream());
 });
-
-/********************************************************
-* LIBRARY CSS                                           *
-********************************************************/
-gulp.task('libcss', function() {
-    return gulp.src(['./node_modules/normalize.css/normalize.css', './node_modules/font-awesome/css/font-awesome.css'])
-        .pipe(concat('lib.css'))
-        .pipe(gulp.dest(projectCssPath))
-        .pipe(rename('lib.min.css'))
-        .pipe(minifyCss())
-        .pipe(gulp.dest(projectCssPath));
-});
-
-/********************************************************
-* SCRIPTS                                               *
-********************************************************/
-gulp.task('scripts', function() {
-    return browserify('./client_javascripts/import.js')
-        .bundle() // Compile the js
-        .pipe(source('script.js')) //Pass desired output filename to vinyl-source-stream
-        .pipe(gulp.dest(projectJsPath)) // Output the file
-        .pipe(buffer()) // convert from streaming to buffered vinyl file object
-        .pipe(rename('script.min.js')) // Rename the minified version
-        .pipe(uglify()) // Minify the file
-        .pipe(gulp.dest(projectJsPath)); // Output the minified file
-});
-
-/********************************************************
-* FONT AWESOME                                          *
-********************************************************/
-gulp.task('fonts', function() {
-    gulp.src('./node_modules/font-awesome/fonts/*')
-        .pipe(gulp.dest('./public/fonts/'));
-});
-
-/********************************************************
-* INIT TASK                                             *
-********************************************************/
-gulp.task('init',['libcss', 'scripts', 'fonts']);
-
-/********************************************************
-* RELOAD ON SCRIPT CHANGE                               *
-********************************************************/
-gulp.task('scriptReload', ['scripts'], browserSync.reload);
 
 /********************************************************
 * SETUP BROWSER SYNC                                    *
@@ -90,8 +59,34 @@ gulp.task('browser-sync', function() {
 * WATCH TASKS                                           *
 ********************************************************/
 gulp.task('watch', function() {
-    gulp.watch(['./sass/**/*.scss'], ['sass']);
-    gulp.watch(['./client_javascripts/**/*.js'], ['scriptReload']);
+    gulp.watch(path.SASS_FILES, ['sass']);
+    gulp.watch(path.TWIG_FILES, browserSync.reload);
+    gulp.watch(path.PUBLIC_FILES, browserSync.reload);
+
+    var watcher  = watchify(browserify({
+        entries: [path.JS_IMPORT],
+        transform: [reactify],
+        debug: true,
+        cache: {}, packageCache: {}, fullPaths: true
+    }));
+
+    return watcher.on('update', function() {
+        watcher.bundle()
+            .pipe(source(path.JS))
+            .pipe(gulp.dest(path.JS_OUT))
+            .pipe(buffer()) // convert from streaming to buffered vinyl file object
+            .pipe(rename(path.JS_MIN)) // Rename the minified version
+            .pipe(uglify()) // Minify the file
+            .pipe(gulp.dest(path.JS_OUT)); // Output the minified file;
+        console.log('Updated');
+    })
+        .bundle()
+        .pipe(source(path.JS))
+        .pipe(gulp.dest(path.JS_OUT))
+        .pipe(buffer()) // convert from streaming to buffered vinyl file object
+        .pipe(rename(path.JS_MIN)) // Rename the minified version
+        .pipe(uglify()) // Minify the file
+        .pipe(gulp.dest(path.JS_OUT)); // Output the minified file;
 });
 
 /********************************************************
