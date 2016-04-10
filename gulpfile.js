@@ -73,13 +73,16 @@ gulp.task('fonts', function() {
 gulp.task('init',['libcss', 'scripts', 'fonts']);
 
 /********************************************************
+* RELOAD ON SCRIPT CHANGE                               *
+********************************************************/
+gulp.task('scriptReload', ['scripts'], browserSync.reload);
+
+/********************************************************
 * SETUP BROWSER SYNC                                    *
 ********************************************************/
 gulp.task('browser-sync', function() {
-    browserSync.init(null, {
-        proxy: 'http://localhost:3000',
-        files: ['public/**/*.*'],
-        port: '5000'
+    browserSync.init({
+        proxy: 'rememberwhen.local'
     });
 });
 
@@ -88,7 +91,7 @@ gulp.task('browser-sync', function() {
 ********************************************************/
 gulp.task('watch', function() {
     gulp.watch(['./sass/**/*.scss'], ['sass']);
-    gulp.watch(['./client_javascripts/**/*.js'], ['scripts']);
+    gulp.watch(['./client_javascripts/**/*.js'], ['scriptReload']);
 });
 
 /********************************************************
