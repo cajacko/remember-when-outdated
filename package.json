@@ -29,7 +29,7 @@
     "sass-mq": "^3.2.5",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.7.0",
+    "watchify": "^3.7.0"
   },
   "dependencies": {
     "babel-preset-react": "^6.5.0",
