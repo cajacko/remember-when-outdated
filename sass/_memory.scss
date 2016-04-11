@@ -1,0 +1,163 @@
+$memoryProfilePicSize: 5em;
+$memoryPadding: 1em;
+$memoryFontSize: $baseFontsize;
+$memoryVerticalMargin: ($memoryPadding * 3.5);
+
+.memory {
+    margin: $memoryVerticalMargin 0;
+    padding: $memoryPadding;
+    font-size: $memoryFontSize;
+    max-width: 32em;
+    box-sizing: border-box;
+    box-shadow: 0.15em 0.15em 0.5em rgba(0, 0, 0, 0.35);
+
+    &:first-child {
+        margin-top: $memoryVerticalMargin - 1em;
+    }
+
+    #postLoop & {
+        border-left: none;
+        border-right: none;
+    }
+
+    &.light {
+        @include whiteTextDefault;
+    }
+
+    &.green {
+        background-color: $green;
+        border: 0.3em solid darken($green, 2%);
+
+        &.light {
+            background-color: #00925D;
+        }       
+    }
+
+    &.red {
+        background-color: $red;
+        border: 0.3em solid darken($red, 2%);
+
+        &.light {
+            background-color: #E42121;
+        }
+    }
+
+    &.orange {
+        background-color: $orange;
+        border: 0.3em solid darken($orange, 2%);
+
+        &.light {
+            background-color: #E07E00;
+        }
+    }
+
+    &.blue {
+        background-color: $blue;
+        border: 0.3em solid darken($blue, 2%);
+
+        &.light {
+            background-color: #0778CC;
+        }
+    }
+
+    &.gray {
+        background-color: $gray;
+        border: 0.3em solid darken($gray, 2%);
+
+        &.light {
+            background-color: #3E3E3E;
+        }
+    }
+
+    &.purple {
+        background-color: $purple;
+        border: 0.3em solid darken($purple, 2%);
+
+        &.light {
+            background-color: #76039A;
+        }
+    }
+}
+
+.memoryProfilePic {
+    display: block;
+    width: $memoryProfilePicSize;
+    height: $memoryProfilePicSize;
+    overflow: hidden;
+    border: 0.2em solid white;
+    box-sizing: border-box;
+    float: right;
+    margin-top: -($memoryPadding * 2.5);
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.memoryDate {
+    display: block;
+    line-height: 1;
+}
+
+.memoryAuthor {
+    display: block;
+    line-height: 1;
+    margin-top: $memoryPadding / 2;
+    font-size: 1.25em;
+}
+
+.memoryContent {
+    font-size: 1.2em;
+    line-height: 1.75;
+    margin: 1.5em 0;
+    font-weight: 300;
+}
+
+.memoryStamps {
+    @include clearFix;
+
+    div {
+        width: 33.33333%;
+        float: left;
+        height: 5.5em;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: 50%;
+        opacity: 0.6;
+    }
+}
+
+.actions {
+    margin-top: $memoryPadding * 1.5;
+    text-align: center;
+    line-height: 1;
+
+    a {
+        display: inline-block;
+        margin: 0 $memoryPadding;
+        color: rgba(0, 0, 0, 0.5);
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    i, .count {
+        vertical-align: top;
+    }
+
+    i {
+        font-size: $touchIconSize;
+        
+    }
+
+    .count {
+        margin: ($touchIconSize - 1) / 2;
+        display: inline-block;
+    }
+}

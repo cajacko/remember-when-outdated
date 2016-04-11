@@ -2431,6 +2431,14 @@ th {
 .fa-percent:before {
   content: "\f295"; }
 
+/****************************************************
+* PLACEHOLDER FORMATTING                            *
+****************************************************/
+a {
+  color: #245CB3; }
+  a:hover {
+    color: #13305e; }
+
 html {
   color: #173e4c;
   font-family: 'helvetica', sans-serif; }
@@ -2469,7 +2477,8 @@ span.siteNavItemTitle, span.siteHeaderNavItemTitle {
   top: 50px;
   left: 0;
   right: 0;
-  bottom: 50px; }
+  bottom: 50px;
+  overflow-x: auto; }
 
 .siteFooter {
   position: fixed;
@@ -2488,3 +2497,120 @@ span.siteNavItemTitle, span.siteHeaderNavItemTitle {
     .siteNav > ul > li {
       display: table-cell;
       vertical-align: middle; }
+
+.memory {
+  margin: 3.5em 0;
+  padding: 1em;
+  font-size: 13px;
+  max-width: 32em;
+  box-sizing: border-box;
+  box-shadow: 0.15em 0.15em 0.5em rgba(0, 0, 0, 0.35); }
+  .memory:first-child {
+    margin-top: 2.5em; }
+  #postLoop .memory {
+    border-left: none;
+    border-right: none; }
+  .memory.light {
+    font-weight: 300;
+    color: white; }
+    .memory.light a {
+      color: white; }
+      .memory.light a:hover {
+        color: white; }
+  .memory.green {
+    background-color: #B2FFD2;
+    border: 0.3em solid #a8ffcc; }
+    .memory.green.light {
+      background-color: #00925D; }
+  .memory.red {
+    background-color: #FFD9D9;
+    border: 0.3em solid #ffcfcf; }
+    .memory.red.light {
+      background-color: #E42121; }
+  .memory.orange {
+    background-color: #FFE6D8;
+    border: 0.3em solid #ffdfce; }
+    .memory.orange.light {
+      background-color: #E07E00; }
+  .memory.blue {
+    background-color: #DAEFFF;
+    border: 0.3em solid #d0ebff; }
+    .memory.blue.light {
+      background-color: #0778CC; }
+  .memory.gray {
+    background-color: #E6E6E6;
+    border: 0.3em solid #e1e1e1; }
+    .memory.gray.light {
+      background-color: #3E3E3E; }
+  .memory.purple {
+    background-color: #E4D4FD;
+    border: 0.3em solid #decafd; }
+    .memory.purple.light {
+      background-color: #76039A; }
+
+.memoryProfilePic {
+  display: block;
+  width: 5em;
+  height: 5em;
+  overflow: hidden;
+  border: 0.2em solid white;
+  box-sizing: border-box;
+  float: right;
+  margin-top: -2.5em; }
+  .memoryProfilePic img {
+    width: 100%;
+    height: auto; }
+
+.memoryDate {
+  display: block;
+  line-height: 1; }
+
+.memoryAuthor {
+  display: block;
+  line-height: 1;
+  margin-top: 0.5em;
+  font-size: 1.25em; }
+
+.memoryContent {
+  font-size: 1.2em;
+  line-height: 1.75;
+  margin: 1.5em 0;
+  font-weight: 300; }
+
+.memoryStamps:before, .memoryStamps:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */ }
+
+.memoryStamps:after {
+  clear: both; }
+
+.memoryStamps div {
+  width: 33.33333%;
+  float: left;
+  height: 5.5em;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  opacity: 0.6; }
+
+.actions {
+  margin-top: 1.5em;
+  text-align: center;
+  line-height: 1; }
+  .actions a {
+    display: inline-block;
+    margin: 0 1em;
+    color: rgba(0, 0, 0, 0.5); }
+    .actions a:first-child {
+      margin-left: 0; }
+    .actions a:last-child {
+      margin-right: 0; }
+  .actions i, .actions .count {
+    vertical-align: top; }
+  .actions i {
+    font-size: 1.75rem; }
+  .actions .count {
+    margin: 0.375rem;
+    display: inline-block; }

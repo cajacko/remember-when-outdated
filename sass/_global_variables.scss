@@ -1,8 +1,39 @@
+@function stripUnits($number) {
+    @return $number / ($number * 0 + 1);
+}
+
+$globalPadding:         1rem;
+$doublePadding:         $globalPadding * 2;
+$halfPadding:           $globalPadding / 2;
+$baseFontsize:          13px;
+$touchIconSize:         1.75rem;
+$defaultBorderWidth:    0.2rem;
+$navZIndex:             9;
+
+// Colours
+$grayInputColour:       #E4E4E4;
+$brandYellow:           #fff65d;
+$borderDarkYellow:      darken($brandYellow, 20%);
+$brandYellowSlightFade: rgba($brandYellow, 0.95);
+$brandYellowMoreFade: rgba($brandYellow, 0.9);
+
+$green: #B2FFD2;
+$red: #FFD9D9;
+$orange: #FFE6D8;
+$blue: #DAEFFF;
+$gray: #E6E6E6;
+$purple: #E4D4FD;
+
+
+
+
+
+
 $siteHeaderNavHeight: 50px;
 $siteHeaderHeight: $siteHeaderNavHeight;
 
 $siteNavHeight: 50px;
 $siteFooterHeight: $siteNavHeight;
 
-$brandYellow: #fff65d;
+
 $brandBlack: #173e4c;

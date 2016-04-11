@@ -12,3 +12,115 @@
         }
     }
 }
+
+
+
+
+
+
+@mixin whiteTextDefault {
+    font-weight: 300;
+    color: white;
+
+    a {
+        color: white;
+
+        &:hover {
+            color: white;
+        }
+    }
+}
+
+/****************************************************
+* PLACEHOLDER FORMATTING                            *
+****************************************************/
+    @mixin placeholderColour($colour) {
+        &::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+         color: $colour;
+        }
+        &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+            color: $colour;
+            opacity:  1;
+        }
+        &::-moz-placeholder { /* Mozilla Firefox 19+ */
+            color: $colour;
+            opacity:  1;
+        }
+        &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+            color: $colour;
+        }
+    }
+
+@mixin clearFix {
+    &:before,
+    &:after {
+        content: " "; /* 1 */
+        display: table; /* 2 */
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+@mixin floatNav {
+    > ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        > li {
+            display: block;
+            float: left;
+        }
+
+        a {
+            display: block;
+        }
+    }
+}
+
+@mixin inlineNav() {
+    > ul {
+        @include clearFix;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        > li {
+            display: inline-block;
+        }
+    }
+
+    a {
+        display: block;
+    }
+}
+
+@mixin contentPadding() {
+    padding-left: $globalPadding;
+    padding-right: $globalPadding;
+}
+
+@mixin absoluteFill() {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+$linkColour: #245CB3;
+
+@mixin wrap() {
+    max-width: 60rem;
+    margin: 0 auto;
+}
+
+a {
+    color: $linkColour;
+
+    &:hover {
+        color: darken(#245CB3, 20%);
+    }
+}
