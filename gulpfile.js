@@ -23,7 +23,7 @@ var path = {
     JS_OUT: './public/javascripts',
     JS: 'script.js',
     JS_MIN: 'script.min.js',
-    JS_IMPORT: './client_javascripts/import.js',
+    JS_IMPORT: './app.js',
     TWIG_FILES: ['./views/**/*.twig'],
     PUBLIC_FILES: ['./public/**/*.js']
 };

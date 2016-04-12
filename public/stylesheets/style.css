@@ -2444,6 +2444,9 @@ html {
   font-family: 'helvetica', sans-serif;
   overflow: hidden; }
 
+a {
+  cursor: pointer; }
+
 .siteNavSubList {
   display: none; }
 
@@ -2473,7 +2476,7 @@ span.siteNavItemTitle, span.siteHeaderNavItemTitle {
   margin: 0;
   padding: 0; }
 
-.page {
+.main {
   position: fixed;
   top: 50px;
   left: 0;

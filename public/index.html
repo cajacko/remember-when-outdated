@@ -1,45 +1,67 @@
 <!DOCTYPE html>
-<html>
+<html class="no-js">
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <title>Remember When</title>
-        <link href="/stylesheets/style.min.css" rel="stylesheet">
-        <script src="/javascripts/script.js"></script>
+        <link href="/stylesheets/style.min.css" rel="stylesheet">   
     </head>
     <body>
-        <header class="siteHeader">
-            <nav class="siteHeaderNav">
-                <ul class="siteHeaderNavList">
-                    <li class="siteHeaderNavItem">
-                        <a class="siteHeaderNavLink fa fa-angle-left"><span class="siteHeaderNavItemTitle">Back</span></a>
-                    </li>
-                    <li class="siteHeaderNavItem">
-                        <h1 class="siteHeaderNavItemTitle siteTitle">Remember when</h1>
-                    </li>
-                    <li class="siteHeaderNavItem">
-                        <a class="siteHeaderNavLink fa fa-plus"><span class="siteHeaderNavItemTitle">Add</span></a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-        <main id="page" class="page active"></main>
-        <footer class="siteFooter">
-            <nav class="siteNav">
-                <ul class="siteNavList">
-                    <li class="siteNavItem"><a class="siteNavLink fa fa-home"><span class="siteNavItemTitle">Home</span></a></li>
-                    <li class="siteNavItem"><a class="siteNavLink fa fa-users"><span class="siteNavItemTitle">Friends</span></a></li>
-                    <li class="siteNavItem"><a class="siteNavLink fa fa-bell"><span class="siteNavItemTitle">Notifications</span></a></li>
-                    <li class="siteNavItem"><a class="siteNavLink fa fa-gamepad"><span class="siteNavItemTitle">Memory Games</span></a></li>
-                    <li class="siteNavItem"><a class="siteNavLink fa fa-bars">
-                        <span class="siteNavItemTitle">More</span></a>
+        <div id="page" class="page">
+            <style>
+                .no-js .loading {
+                    display: none;
+                }
 
-                        <ul class="siteNavMoreList siteNavSubList">
-                            <li class="siteNavItem"><a class="siteNavLink"><span class="siteNavItemTitle">Log out</span></a></li>
-                            <li class="siteNavItem"><a class="siteNavLink"><span class="siteNavItemTitle">Profile</span></a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-        </footer>
+                .js, .js body, .js .page {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+
+                .js .page {
+                    display: table;
+                    line-height: 1;
+                }
+
+                .js .loading {
+                    display: table-row;
+                }
+
+                .js .loadingWrap {
+                    display: table-cell;
+                    vertical-align: middle;
+                    text-align: center;
+                }
+
+                .js .noJsTitle {
+                    display: none;
+                }
+
+                .loadingTitle {
+                    display: block;
+                    margin-top: 10px;
+                }
+            </style>
+
+            <h1 class="noJsTitle">You must have javascript enabled to view this site</h1>
+
+            <div class="loading">
+                <div class="loadingWrap">
+                    <img class="loadingImage" src="/media/loading.gif">
+                    <span class="loadingTitle">Loading</span>
+                </div>
+            </div>
+
+            <script>
+                var d = document.documentElement;
+                d.className = "js";
+            </script>
+        </div>
+        
+        <script src="/javascripts/script.js"></script>
     </body>
 </html>
