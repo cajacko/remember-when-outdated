@@ -1,4 +1,5 @@
 var React = require('react');
+var $ = require('jquery');
 var MemoryLoop = require('../sublayouts/memory_loop.js');
 
 var posts = {posts: []};
@@ -13,7 +14,7 @@ for(i = 0; i < 10; i++) {
         date: '2016-03-12 12:00:00',
         dateString: 'Sat 12th March, 2016',
         content: 'Some content',
-        authorName: 'Charlie Jackson',
+        authorName: 'Local Person',
         authorUrl: '/user/123',
         authorProfilePic: 'http://eadb.org/wp-content/uploads/2015/08/profile-placeholder.jpg',
         privacy: 'friends',
@@ -63,12 +64,30 @@ for(i = 0; i < 10; i++) {
     });
 }
 
-var MyComponent = React.createClass({
-  render: function() {
-    return (
-        <MemoryLoop data={posts.posts}></MemoryLoop>
-    )
-  }
+var MyComponent = React.createClass({ 
+    getInitialState: function() {
+        return {data: posts.posts};  
+    },
+    componentDidMount: function() {
+        $.ajax({
+            url: '/action.php',
+            dataType: 'json',
+            cache: false,
+            success: function(data) {
+                this.setState({data: data.posts});
+            }.bind(this),
+            error: function(xhr, status, err) {
+                console.log('error');
+                console.error(this.props.url, status, err.toString());
+            }.bind(this)
+        });
+    },
+    render: function() {
+        console.log(this.state.data);
+        return (
+            <MemoryLoop data={this.state.data}></MemoryLoop>
+        )
+    }
 });
 
 module.exports = MyComponent;
