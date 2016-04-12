@@ -2441,7 +2441,8 @@ a {
 
 html {
   color: #173e4c;
-  font-family: 'helvetica', sans-serif; }
+  font-family: 'helvetica', sans-serif;
+  overflow: hidden; }
 
 .siteNavSubList {
   display: none; }
@@ -2478,7 +2479,8 @@ span.siteNavItemTitle, span.siteHeaderNavItemTitle {
   left: 0;
   right: 0;
   bottom: 50px;
-  overflow-x: auto; }
+  overflow-x: hidden;
+  overflow-y: auto; }
 
 .siteFooter {
   position: fixed;
@@ -2502,7 +2504,6 @@ span.siteNavItemTitle, span.siteHeaderNavItemTitle {
   margin: 3.5em 0;
   padding: 1em;
   font-size: 13px;
-  max-width: 32em;
   box-sizing: border-box;
   box-shadow: 0.15em 0.15em 0.5em rgba(0, 0, 0, 0.35); }
   .memory:first-child {
@@ -2577,16 +2578,19 @@ span.siteNavItemTitle, span.siteHeaderNavItemTitle {
   margin: 1.5em 0;
   font-weight: 300; }
 
-.memoryStamps:before, .memoryStamps:after {
-  content: " ";
-  /* 1 */
-  display: table;
-  /* 2 */ }
+.memoryStamps {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+  .memoryStamps:before, .memoryStamps:after {
+    content: " ";
+    /* 1 */
+    display: table;
+    /* 2 */ }
+  .memoryStamps:after {
+    clear: both; }
 
-.memoryStamps:after {
-  clear: both; }
-
-.memoryStamps div {
+.memoryStampWrap {
   width: 33.33333%;
   float: left;
   height: 5.5em;
@@ -2595,22 +2599,30 @@ span.siteNavItemTitle, span.siteHeaderNavItemTitle {
   background-position: 50%;
   opacity: 0.6; }
 
-.actions {
+.memoryStamp {
+  max-width: 100%;
+  max-height: 100%;
+  height: auto; }
+
+.memoryActions {
+  margin: 0;
+  padding: 0;
   margin-top: 1.5em;
   text-align: center;
-  line-height: 1; }
-  .actions a {
+  line-height: 1;
+  list-style: none; }
+  .memoryActions li {
     display: inline-block;
     margin: 0 1em;
     color: rgba(0, 0, 0, 0.5); }
-    .actions a:first-child {
+    .memoryActions li:first-child {
       margin-left: 0; }
-    .actions a:last-child {
+    .memoryActions li:last-child {
       margin-right: 0; }
-  .actions i, .actions .count {
+  .memoryActions i, .memoryActions .count {
     vertical-align: top; }
-  .actions i {
+  .memoryActions i {
     font-size: 1.75rem; }
-  .actions .count {
+  .memoryActions .count {
     margin: 0.375rem;
     display: inline-block; }

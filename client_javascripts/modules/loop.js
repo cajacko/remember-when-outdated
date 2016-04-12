@@ -24,10 +24,14 @@ function getPosts(query) {
 
 function returnDummyPosts(quantity) {
     var posts = {posts: []};
+    var backgrounds = ['red', 'green', 'orange', 'gray', 'blue', 'purple'];
 
     for(i = 0; i < quantity; i++) {
+        var background = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+
         posts.posts.push({
             id: i,
+            background: background,
             date: '2016-03-12 12:00:00',
             dateString: 'Sat 12th March, 2016',
             content: 'Some content',
@@ -145,7 +149,7 @@ function renderPosts(posts) {
         var MemoryActions = React.createClass({
             render: function() {
                 return (
-                    <ul className="actions">
+                    <ul className="memoryActions">
                         <li><MemoryActionsFavourites></MemoryActionsFavourites></li>
                         <li><MemoryActionsComments></MemoryActionsComments></li>
                         <li><MemoryActionsTags></MemoryActionsTags></li>
@@ -160,11 +164,11 @@ function renderPosts(posts) {
                 if(this.props.data) {
                     var postImages = this.props.data.map(function(data) {
                         return (
-                            <li><img className="memoryStamp" src={data} alt="Stamp image" /></li>
+                            <li className="memoryStampWrap"><img className="memoryStamp" src={data} alt="Stamp image" /></li>
                         );
                     });
                     return (
-                        <ul>
+                        <ul className="memoryStamps">
                             {postImages}
                         </ul>
                     );
@@ -178,7 +182,7 @@ function renderPosts(posts) {
         var Memory = React.createClass({
             render: function() {
                 return (
-                    <article className="memory">
+                    <article className={'memory ' + this.props.data.background}>
                         <a className="memoryProfilePic" href={this.props.data.authorUrl}>
                             <img className="memoryUserPic" src={this.props.data.authorProfilePic} alt={this.props.data.authorName + 'Profile Pic'} />
                         </a>
