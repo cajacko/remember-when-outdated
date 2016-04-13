@@ -18,3 +18,14 @@ span {
         display: none;
     }
 }
+
+form {
+    padding: 0 10px;
+
+    > * {
+        box-sizing: border-box;
+        display: block;
+        margin-top: 10px;
+        width: 100%;
+    }
+}

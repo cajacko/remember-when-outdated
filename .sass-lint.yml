@@ -19,7 +19,7 @@ rules:
     - 1
     -
       convention: 'camelcase'
-  no-vendor-prefix:
+  no-vendor-prefixes:
     - 1
     -
       'excluded-identifiers':

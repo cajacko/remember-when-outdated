@@ -1,14 +1,20 @@
-var React = require('react');
-var Link = require('react-router').Link;
+var React = require('react'); // Import react
+var Link = require('react-router').Link; // Get the links component for react router
+var History = require('react-router').History; // Get the history component for react router
 
+// TODO: The history mixin has been depreciated - updated
+// TODO: Allow title to be updated
+// TODO: hide/show back button when not necessary
+// Render the site header
 var Header = React.createClass({
+    mixins: [History],
     render: function() {
         return (
             <header className="siteHeader">
                 <nav className="siteHeaderNav">
                     <ul className="siteHeaderNavList">
                         <li className="siteHeaderNavItem">
-                            <a className="siteHeaderNavLink fa fa-angle-left"><span className="siteHeaderNavItemTitle">Back</span></a>
+                            <a className="siteHeaderNavLink fa fa-angle-left" onClick={this.history.goBack}><span className="siteHeaderNavItemTitle">Back</span></a>
                         </li>
                         <li className="siteHeaderNavItem">
                             <h1 className="siteHeaderNavItemTitle siteTitle">Remember when</h1>
@@ -23,6 +29,8 @@ var Header = React.createClass({
     }
 });
 
+// TODO: Create the sub menu
+// Render the site footer
 var Footer = React.createClass({
     render: function() {
         return (
@@ -48,6 +56,7 @@ var Footer = React.createClass({
     }
 });
 
+// Render whole page
 var Main = React.createClass({
     render: function() {
         return (
@@ -60,4 +69,4 @@ var Main = React.createClass({
     }
 });
 
-module.exports = Main;
+module.exports = Main; // Export the react class

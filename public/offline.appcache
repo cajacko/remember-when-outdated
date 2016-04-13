@@ -1,8 +1,9 @@
 CACHE MANIFEST
-#v9
+#v20
 ./index.html
-./stylesheets/style.min.css
-./javascripts/script.min.js
+./media/loading.gif
+#./javascripts/script.min.js
+#./stylesheets/style.min.css
 ./fonts/fontawesome-webfont.eot
 ./fonts/fontawesome-webfont.svg
 ./fonts/fontawesome-webfont.ttf

@@ -11,6 +11,9 @@ var Single = require('../views/pages/single');
 var FourOhFour = require('../views/pages/404');
 var Layout = require('../views/sublayouts/layout');
 
+// TODO: animate between pages
+// TODO: save last state of pages, if recently visited
+
 ReactDOM.render((
   <Router history={hashHistory}>
     <Route path="/" component={Layout}>

@@ -1,13 +1,19 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html class="no-js" manifest="offline.appcache">
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="mobile-web-app-capable" content="yes">
         <title>Remember When</title>
         <link href="/stylesheets/style.min.css" rel="stylesheet">   
     </head>
     <body>
         <div id="page" class="page">
             <style>
+                html {
+                    font-family: 'helvetica', sans-serif;
+                }
+                
                 .no-js .loading {
                     display: none;
                 }
@@ -60,8 +66,8 @@
                 var d = document.documentElement;
                 d.className = "js";
             </script>
-        </div>
+        </div>     
         
-        <script src="/javascripts/script.js"></script>
+        <script src="/javascripts/script.min.js"></script>
     </body>
 </html>

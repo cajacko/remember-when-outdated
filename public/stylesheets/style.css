@@ -2453,6 +2453,14 @@ a {
 span.siteNavItemTitle, span.siteHeaderNavItemTitle {
   display: none; }
 
+form {
+  padding: 0 10px; }
+  form > * {
+    box-sizing: border-box;
+    display: block;
+    margin-top: 10px;
+    width: 100%; }
+
 .siteHeader {
   position: fixed;
   top: 0;
@@ -2477,13 +2485,14 @@ span.siteNavItemTitle, span.siteHeaderNavItemTitle {
   padding: 0; }
 
 .main {
-  position: fixed;
-  top: 50px;
-  left: 0;
-  right: 0;
+  -webkit-overflow-scrolling: touch;
   bottom: 50px;
+  left: 0;
   overflow-x: hidden;
-  overflow-y: auto; }
+  overflow-y: auto;
+  position: fixed;
+  right: 0;
+  top: 50px; }
 
 .siteFooter {
   position: fixed;
