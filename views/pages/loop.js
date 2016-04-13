@@ -64,7 +64,7 @@ for(i = 0; i < 10; i++) {
     });
 }
 
-var MyComponent = React.createClass({ 
+var Loop = React.createClass({ 
     getInitialState: function() {
         return {data: posts.posts};  
     },
@@ -77,17 +77,15 @@ var MyComponent = React.createClass({
                 this.setState({data: data.posts});
             }.bind(this),
             error: function(xhr, status, err) {
-                console.log('error');
                 console.error(this.props.url, status, err.toString());
             }.bind(this)
         });
     },
     render: function() {
-        console.log(this.state.data);
         return (
             <MemoryLoop data={this.state.data}></MemoryLoop>
         )
     }
 });
 
-module.exports = MyComponent;
+module.exports = Loop;

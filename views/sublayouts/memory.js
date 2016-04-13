@@ -48,9 +48,9 @@ var MemoryActions = React.createClass({
 var MemoryStamps = React.createClass({     
     render: function() {
         if(this.props.data) {
-            var postImages = this.props.data.map(function(data) {
+            var postImages = this.props.data.map(function(data, i) {
                 return (
-                    <li className="memoryStampWrap"><img className="memoryStamp" src={data} alt="Stamp image" /></li>
+                    <li key={i} className="memoryStampWrap"><img className="memoryStamp" src={data} alt="Stamp image" /></li>
                 );
             });
             return (
